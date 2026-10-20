@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100d25">
+  <title>TarotMatch — кто тебе подходит?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="TarotMatch — главная"><span class="moon">☾</span> TarotMatch</a>
+    <a class="about-link" href="#about">О проекте</a>
+  </header>
+
+  <main class="page">
+    <div class="eyebrow"><span></span> ТВОЯ СУДЬБА УЖЕ НАПИСАНА <span></span></div>
+    <h1>Кто тебе<br><em>предназначен?</em></h1>
+    <p class="intro">Загадай желание, введи свои данные —<br class="desktop"> и позволь картам открыть тайну сердца.</p>
+
+    <section class="form-panel" aria-label="Данные для расклада">
+      <form id="match-form">
+        <label for="name">Как тебя зовут?
+          <input id="name" name="name" type="text" maxlength="50" placeholder="Твоё имя" autocomplete="given-name" required>
+        </label>
+        <label for="birthday">Когда ты родился(-ась)?
+          <input id="birthday" name="birthday" type="date" required>
+        </label>
+        <button type="submit"><span>✧</span> Открыть мою судьбу <span>✧</span></button>
+      </form>
+      <p class="privacy-note">✦ Только магия. Никаких данных мы никуда не отправляем.</p>
+    </section>
+
+    <section id="result" class="result-panel" aria-live="polite" hidden>
+      <div class="result-kicker">✦ ТВОЙ РАСКЛАД ГОТОВ ✦</div>
+      <h2 id="result-heading">Карты сделали свой выбор</h2>
+      <div class="match-card">
+        <div class="card-art" aria-hidden="true"><span id="card-symbol">☼</span><small id="card-name">THE LOVERS</small></div>
+        <div class="match-details">
+          <p class="match-label">ТВОЯ ИДЕАЛЬНАЯ ПАРА</p>
+          <h3 id="match-name">Маргарита</h3>
+          <p class="match-date" id="match-date">9 марта</p>
+          <div class="ornament">✧ ─────── ✧ ─────── ✧</div>
+          <p id="match-description" class="description"></p>
+        </div>
+      </div>
+      <p class="disclaimer">Помни: это шуточный расклад, а не настоящая магия 😉</p>
+      <button id="again" class="secondary-button" type="button">Сделать новый расклад</button>
+    </section>
+
+    <section class="three-cards" aria-label="Карты судьбы">
+      <div class="mini-card"><span>☼</span><small>СОЛНЦЕ</small></div>
+      <div class="mini-card"><span>♡</span><small>ВЛЮБЛЁННЫЕ</small></div>
+      <div class="mini-card"><span>✦</span><small>ЗВЕЗДА</small></div>
+    </section>
+    <p id="about" class="about">Создано для улыбок, романтики и маленьких совпадений.</p>
+  </main>
+  <footer>✧ TAROTMATCH · ВСЁ РЕШАЕТ СЛУЧАЙ ✧</footer>
+  <script src="script.js"></script>
+</body>
+</html>
