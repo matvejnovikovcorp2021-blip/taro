@@ -40,20 +40,26 @@ form.addEventListener("submit", (event) => {
   const normalizedName = name.toLocaleLowerCase("ru-RU");
   const [, month, day] = birthday.split("-"); // формат date: YYYY-MM-DD
   const isArsenSpecial = normalizedName === "арсен" && month === "06" && day === "08";
+  const isMargaritaSpecial = normalizedName === "маргарита" && month === "03" && day === "09";
 
   let match;
-  if (isArsenSpecial) {
+  if (isArsenSpecial || isMargaritaSpecial) {
     match = {
-      name: "Маргарита",
-      date: "9 марта",
+      name: isArsenSpecial ? "Маргарита" : "Арсен",
+      date: isArsenSpecial ? "9 марта" : "8 июня",
       symbol: "♡",
       card: "THE LOVERS",
-      description: "Звёзды сошлись не случайно: твоё имя и дата рождения открыли особый расклад. Карты выбрали Маргариту — родившуюся 9 марта. Совпадение? Решать тебе 😉"
+      description: isArsenSpecial
+        ? "Звёзды сошлись не случайно: твоё имя и дата рождения открыли особый расклад. Карты выбрали Маргариту — родившуюся 9 марта. Совпадение? Решать тебе 😉"
+        : "Звёзды сошлись не случайно: карты выбрали Арсена — родившегося 8 июня. Возможно, судьба приготовила тебе особенный сюрприз 😉"
     };
   } else {
-    // Исключаем специальную пару из случайной выдачи, чтобы правило было особенным.
-    const otherMatches = matches.filter((item) => !(item.name === "Маргарита" && item.date === "9 марта"));
-    match = otherMatches[Math.floor(Math.random() * otherMatches.length)];
+    const otherMatches = matches.filter(
+      item => !(item.name === "Маргарита" && item.date === "9 марта")
+    );
+    match = otherMatches[
+      Math.floor(Math.random() * otherMatches.length)
+    ];
   }
 
   document.querySelector("#result-heading").textContent = `Расклад для ${name}`;
